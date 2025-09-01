@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const themeIcon = themeToggle.querySelector("i");
 
   // Testimonial Carousel
+  // Testimonial Carousel
   const carousel = document.getElementById("testimonial-carousel");
   const prevBtn = document.getElementById("prev-btn");
   const nextBtn = document.getElementById("next-btn");
@@ -16,22 +17,28 @@ document.addEventListener("DOMContentLoaded", function () {
     carousel.style.transform = `translateX(-${currentTestimonial * 100}%)`;
   }
 
-  prevBtn.addEventListener("click", function () {
-    currentTestimonial =
-      (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-    updateCarousel();
-  });
+  // Only run carousel if screen is wider than 768px
+  if (window.innerWidth > 768) {
+    prevBtn.addEventListener("click", function () {
+      currentTestimonial =
+        (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+      updateCarousel();
+    });
 
-  nextBtn.addEventListener("click", function () {
-    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-    updateCarousel();
-  });
+    nextBtn.addEventListener("click", function () {
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      updateCarousel();
+    });
 
-  // Auto-advance carousel
-  setInterval(() => {
-    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-    updateCarousel();
-  }, 10000);
+    // Auto-advance carousel
+    setInterval(() => {
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      updateCarousel();
+    }, 10000);
+  } else {
+    // On mobile: reset transform so items just stack
+    carousel.style.transform = "none";
+  }
 
   // Update active nav link on scroll
   window.addEventListener("scroll", function () {
@@ -118,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
           function () {
             // Show success message
             // formMessage.textContent = "Message sent successfully!";
-            alert('Thank you! Your message has been successfully sent!');
+            alert("Thank you! Your message has been successfully sent!");
             formMessage.classList.add("success");
 
             // Reset form
