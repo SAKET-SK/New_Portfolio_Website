@@ -246,7 +246,7 @@ nav {
 }
 
 .dark-mode .menu-btn {
-  color: var(--lighter);
+  color: white;
 }
 
 /* Hero Section */
@@ -849,6 +849,23 @@ footer {
 
   .nav-links li {
     margin: 1.5rem 0;
+  }
+
+  .carousel {
+    display: block;         /* stack items */
+    overflow-x: hidden;     /* stop sideways scrolling */
+    white-space: normal;    /* allow wrapping */
+  }
+
+  .testimonial {
+    width: 100% !important;
+    min-width: unset !important;
+    margin: 1rem 0;
+  }
+
+  #prev-btn,
+  #next-btn {
+    display: none; /* hide nav buttons on mobile */
   }
 
   .skills-grid,
