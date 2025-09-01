@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saket Khopkar's Portfolio Website</title>
+    <link rel="icon" href="images/title_logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <meta name="title" content="Saket Khopkar | Software Engineer & Full-Stack Developer">
+    <meta name="description" content="Portfolio of Saket Khopkar, Software Engineer specializing in Full-Stack Development, Generative AI, and Technical Writing. Explore projects, blogs, and contact information.">
+    <meta name="keywords" content="Saket Khopkar, Software Engineer, Full-Stack Developer, MERN stack, Generative AI, Portfolio, Pune, India">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Saket Khopkar",
+        "url": "https://your-portfolio-domain.com",
+        "image": "https://your-portfolio-domain.com/images/my-photo.jpg",
+        "sameAs": [
+                    "https://github.com/SAKET-SK",
+                    "https://www.linkedin.com/in/saket-khopkar-336684198/",
+                    "https://twitter.com/saketkhopkar478",
+                    "https://www.instagram.com/mystic.saket_910/"
+        ],
+        "jobTitle": "Software Engineer | Full-Stack Developer",
+        "worksFor": {
+                        "@type": "Organization",
+                        "name": "OMFYS Technologies India Pvt. Ltd."
+        }
+}
+</script>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo"><img src="images/New-Logo.PNG" style="width: 200px; height: 70px;"></a>
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#knowledge" class="nav-link">Knowledge</a></li>
+                    <li><a href="#blogs" class="nav-link">Blogs</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="menu-btn" id="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Hi, I'm <span style="color: var(--primary);">Saket Khopkar</span></h2>
+                    <p>I'm a passionate developer and tech-writer with expertise in creating digital experiences that engage and inspire.</p>
+                    <div class="hero-btns">
+                        <a href="#contact" class="btn">Get in Touch</a>
+                        <a href="https://drive.google.com/file/d/14DZwVdGUjSxIWk7KRuRAU8UKi93HLKVh/view?usp=sharing" target="_blank" rel="noopener noreferrer"class="btn btn-outline">View Resume</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/my-photo.jpg" alt="Saket Khopkar">
+                </div>
+                <div class="video-container">
+                    <h3>Check out my introduction video</h3>
+                    <div class="video-wrapper">
+                        <iframe src="Portfolio_video.mp4" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <!-- Work Experience -->
+                <div class="work-exp">
+                    <h3>Work Experience</h3>
+                    <div class="work-item">
+                        <div class="work-date">July 2023 - Present</div>
+                        <div class="work-details">
+                            <div class="work-company">OMFYS Technologies India Pvt. Ltd.</div>
+                            <div class="work-role">Software Engineer - Full Time</div>
+                            <p>Specialized in building Generative AI and Oracle Digital Assistant solutions, leading chatbot projects, client presentations, and cloud-based analytics to drive innovation and business efficiency.</p>
+                        </div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-date">October 2023 - May 2024</div>
+                        <div class="work-details">
+                            <div class="work-company">FirstBit Solutions</div>
+                            <div class="work-role">Full Stack Web Development - Online Apprenticeship</div>
+                            <p>Fortified my learning around Full Stack Web Development & Developed responsive web applications using React and Angular.</p>
+                        </div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-date">September 2020 - November 2020</div>
+                        <div class="work-details">
+                            <div class="work-company">Verzeo Edutech</div>
+                            <div class="work-role">Full Stack Web Development - Internship</div>
+                            <p>Built strong foundations in HTML, CSS, and JavaScript through hands-on front-end projects.</p>
+                        </div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-date">May 2018 - June 2018</div>
+                        <div class="work-details">
+                            <div class="work-company">Axiom TechGuru Pvt. Ltd.</div>
+                            <div class="work-role">Stepped into the programming foray with Java, weaving together frontend interfaces and MySQL-backed solutions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education {Reused from Work Experience} -->
+                <div class="work-exp">
+                    <h3>Education</h3>
+                    <div class="work-item">
+                        <div class="work-date">June 2019 - August 2022</div>
+                        <div class="work-details">
+                            <div class="work-company">International Institute of Information Technology (I<sup>2</sup>IT), Pune</div>
+                            <div class="work-role">B.E. in Information Technology & Honors in Data Science & Big Data Analytics (CGPA :- 8.64)</div>
+                            <p>Completed impactful academic projects in DBMS and Machine Learning, published research on vehicle health prediction, and earned an Honors in Data Science with focus on Artificial Intelligence (AI), Machine Learning (ML), and Natural Language Processing (NLP).</p>
+                        </div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-date">June 2016 - June 2019</div>
+                        <div class="work-details">
+                            <div class="work-company">Government Polytechnic, Yavatmal</div>
+                            <div class="work-role">Diploma in Computer Engineering (Aggregate :- 82.12%)</div>
+                            <p>Actively represented the college in competitions, contributed to campus event decisions, led an environmental initiative, and as a team leader, spearheaded a final-year e-commerce project.</p>
+                        </div>
+                    </div>
+
+                <!-- Projects -->
+                <div class="projects">
+                    <h3>Projects</h3>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="images/project-1.png" alt="Project">
+                            </div>
+                            <div class="project-content">
+                                <h3>Google-Lookalike Portfolio Website</h3>
+                                <p>Built a portfolio website mimicking look and feel of Google Search Engine and other related features.</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">React</span>
+                                    <span class="project-tag">Node.JS</span>
+                                    <span class="project-tag">Material-UI</span>
+                                    <span class="project-tag">JavaScript</span>
+                                </div>
+                                <a href="https://github.com/SAKET-SK/Google-Type-Portfolio-Website"  target="_blank" class="read-more">View Project Source Code <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="images/project-2.jpg" alt="Project">
+                            </div>
+                            <div class="project-content">
+                                <h3>Vehicle Data Analytics</h3>
+                                <p>Developed an advanced framework leveraging machine learning algorithms and data analytics to extrapolate vehicle health and driving attributes.</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">Python</span>
+                                    <span class="project-tag">Jupyter Notebook</span>
+                                    <span class="project-tag">OpenCV</span>
+                                </div>
+                                <a href="https://github.com/SAKET-SK/OpenCV" target="_blank" class="read-more">View Project Source Code <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="images/project-3.jfif" alt="Project">
+                            </div>
+                            <div class="project-content">
+                                <h3>Landing Page for TECC</h3>
+                                <p>A Sample webpage designed and developed for simulated client called TECC - The Election Commission Company</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">Frontend Development</span>
+                                    <span class="project-tag">JavaScript</span>
+                                </div>
+                                <a href="https://github.com/SAKET-SK/Election-Web" target="_blank" class="read-more">View Project Source Code <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="images/project-4.jfif" alt="Project">
+                            </div>
+                        <div class="project-content">
+                                <h3>Ultimate First Person Shooter Game</h3>
+                                <p>Developed a full fleged First Person Shooter (FPS) Game using Unity Game Engine</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">Game Development</span>
+                                    <span class="project-tag">C#</span>
+                                    <span class="project-tag">Unity Game Engine</span>
+                                </div>
+                                <a href="https://github.com/SAKET-SK/FPS-GAME" target="_blank" class="read-more">View Project Source Code <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="images/project-5.jfif" alt="Project">
+                            </div>
+                        <div class="project-content">
+                                <h3>Online Electronic Store</h3>
+                                <p>Developed an online electronic shop, having features to browse various electronic items and place order for delivery of that item.</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">ASP.NET</span>
+                                    <span class="project-tag">C#</span>
+                                </div>
+                                <a href="https://github.com/SAKET-SK/Online-Electronic-Store-Project" target="_blank" class="read-more">View Project Source Code <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="achievements">
+                    <br>
+                    <h3>Achievements</h3>
+                    <div class="achievements-grid">
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h3>Recognized for Dedication</h3>
+                            <p>Certified as a hardworking intern at Axiom TechGuru Pvt Ltd for intense focus and willingness to create new applications.</p>
+                            <div class="achievement-date">2018</div>
+                        </div>
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <h3>Oracle Certified</h3>
+                            <p>Currently holding many Oracle certifications in the field of Generative AI</p>
+                            <div class="achievement-date">2025</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendations Carousel -->
+                 <br>
+                 <br>
+                <div class="recommendations">
+                    <h3 style="text-align: center;">Recommendations - The golden words of people I've worked with...</h3>
+                    <div class="carousel" id="testimonial-carousel">
+                        <div class="testimonial">
+                            <p class="testimonial-text">A quick learner, he is progressing quickly with his skillsets. He is truly a hardworking guy and has core fundamental knowledge in Programming skills with Python & Java. He already has knowledge of Responsive Web Development. He is a team builder, who has had experience leading teams in a few projects. He is an interesting person to work with!</p>
+                            <div class="testimonial-author">Ms. Dhanashri Rajput</div>
+                            <div class="testimonial-role">Software Engineer / Project Collaborator in I<sup>2</sup>IT</div>
+                        </div>
+                        <div class="testimonial">
+                            <p class="testimonial-text">He worked in our organization and it was found that he possessed good knowledge in Java Programming as well as MySQL Backend development. Saket is truly hardworking, reliable and getting professional with each bit of training. Wishing him all the best for future endeavors.</p>
+                            <div class="testimonial-author">Ms. R Farah Hussain</div>
+                            <div class="testimonial-role">Business Analyst, Axiom TechGuru Pvt. Ltd.</div>
+                        </div>
+                        <div class="testimonial">
+                            <p class="testimonial-text">Saket expertly managed four digital assistants with a strong sense of ownership and meticulous attention to detail. His accurate cost reporting was critical for client transparency. He is a reliable, solutions-oriented professional who is an asset to any team.</p>
+                            <div class="testimonial-author">Ms. Prachi Shimpi</div>
+                            <div class="testimonial-role">Project Manager, OMFYS</div>
+                        </div>
+                        <div class="testimonial">
+                            <p class="testimonial-text">Saket is a highly skilled expert in Oracle technologies who takes strong ownership of projects. His expertise and responsibility make him a great asset to any team.</p>
+                            <div class="testimonial-author">Mr. Soumyadeep Maiti</div>
+                            <div class="testimonial-role">Software Engineer, OMFYS</div>
+                        </div>
+                        <div class="testimonial">
+                            <p class="testimonial-text">Saket is an exceptional team player who meticulously documents processes and willingly tackles challenges outside his comfort zone. His remarkable multitasking ability significantly enhances team success and dynamics.</p>
+                            <div class="testimonial-author">Mr. Rohan Chandekar</div>
+                            <div class="testimonial-role">Software Engineer, OMFYS</div>
+                        </div>
+                        <div class="testimonial">
+                            <p class="testimonial-text">Saket is a skilled leader who expertly managed a crucial banking project, delivering exceptional results ahead of schedule. His strong work ethic and reliability make him a highly recommended standout.</p>
+                            <div class="testimonial-author">Ms. Priyanka Shukla</div>
+                            <div class="testimonial-role">Software Test Engineer, OMFYS</div>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn" id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn" id="next-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Knowledge Base Section -->
+    <section id="knowledge">
+        <div class="container">
+            <h2 class="section-title">Knowledge Base</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <ul class="skill-list">
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript</li>
+                        <li>React.js</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <ul class="skill-list">
+                        <li>Node.js</li>
+                        <li>Express</li>
+                        <li>Python</li>
+                        <li>RESTful APIs</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Database</h3>
+                    <ul class="skill-list">
+                        <li>MySQL</li>
+                        <li>MongoDB</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Other Skills</h3>
+                    <ul class="skill-list">
+                        <li>Generative AI</li>
+                        <li>Team Leadership</li>
+                        <li>Technical Writing / Blogging</li>
+                        <li>Public Speaking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blogs Section -->
+    <section id="blogs">
+        <div class="container">
+            <h2 class="section-title">My Blogs</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/blog-1.png" alt="Blog Post">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Honors of AI-ML-DS</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> June 12, 2023</span>
+                            <span><i class="far fa-clock"></i> 10 min read</span>
+                        </div>
+                        <p>A blog simplifying the Generative AI and other related concepts.</p>
+                        <a href="https://learnaimldswithsk.hashnode.dev/" target="_blank" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/blog-2.jfif" alt="Blog Post">
+                    </div>
+                    <div class="blog-content">
+                        <h3>EdTech Blog Center</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> May 28, 2023</span>
+                            <span><i class="far fa-clock"></i> 7 min read</span>
+                        </div>
+                        <p>A blog comprising of various emerging and trending tech topics.</p>
+                        <a href="https://saketrobotics910.blogspot.com/" target="_blank" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/blog-3.png" alt="Blog Post">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Technical Blogs</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> April 15, 2023</span>
+                            <span><i class="far fa-clock"></i> 10 min read</span>
+                        </div>
+                        <p>A blog space where I document and simplify various topics from Full Stack Web Development</p>
+                        <a href="https://saketsk.hashnode.dev/" target="_blank" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/blog-4.png" alt="Blog Post">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Psyche & Syntax</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> July 17, 2023</span>
+                            <span><i class="far fa-clock"></i> 10 min read</span>
+                        </div>
+                        <p>My LinkedIn Newsletter where I post content related to tech along with psychology.</p>
+                        <a href="https://www.linkedin.com/newsletters/psyche-syntax-7316897806626054144" target="_blank" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/blog-5.jfif" alt="Blog Post">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Psych Time</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> April 15, 2023</span>
+                            <span><i class="far fa-clock"></i> 10 min read</span>
+                        </div>
+                        <p>A blog dedicated to human psychology, where I write down after observing the world from my perspective.</p>
+                        <a href="https://saketkhopkar567.blogspot.com/" target="_blank" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/blog-6.png" alt="Blog Post">
+                    </div>
+                    <div class="blog-content">
+                        <h3>JavaScript Interview Prep</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> May 27, 2020</span>
+                            <span><i class="far fa-clock"></i> 10 min read</span>
+                        </div>
+                        <p>A blog space where I simplify JavaScript interview questions and related concepts</p>
+                        <a href="https://jsprep.hashnode.dev" target="_blank" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/blog-7.jfif" alt="Blog Post">
+                    </div>
+                    <div class="blog-content">
+                        <h3>World of eSports</h3>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> October 15, 2021</span>
+                            <span><i class="far fa-clock"></i> 10 min read</span>
+                        </div>
+                        <p>A blog space where I explore the realm of eSports and online gaming</p>
+                        <a href="https://saketskgames.blogspot.com/" target="_blank" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-envelope"></i> saketkhopkar910@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra, India</li>
+                        <li><i class="fas fa-clock"></i> Available Online on Weekdays: 9AM - 1PM</li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="senderName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="senderEmail" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="senderTopic" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="form-message" class="form-control" name="senderSubject" required></textarea>
+                        </div>
+                        <button type="submit" id="submit-btn" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>Your Name</h3>
+            <ul class="social-links">
+                <li><a href="https://github.com/SAKET-SK" target="_blank"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/saket-khopkar-336684198/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="https://twitter.com/saketkhopkar478?s=08" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/mystic.saket_910/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+            <p class="copyright">&copy; <script>document.write(new Date().getFullYear())</script> Saket Khopkar. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
