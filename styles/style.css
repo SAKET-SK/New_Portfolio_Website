@@ -205,7 +205,7 @@ nav {
 }
 
 .dark-mode .nav-links a {
-  color: white;
+  color: black;
 }
 
 .nav-links a::after {
@@ -890,3 +890,4 @@ footer {
     min-width: unset;
   }
 }
+
