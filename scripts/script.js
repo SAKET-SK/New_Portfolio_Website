@@ -48,12 +48,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const home = document.getElementById("home");
     const about = document.getElementById("about");
     const knowledge = document.getElementById("knowledge");
+    const recommendations = document.getElementById("recommendations");
     const blogs = document.getElementById("blogs");
     const contact = document.getElementById("contact");
 
     const homeOffset = home.offsetTop - 100;
     const aboutOffset = about.offsetTop - 100;
     const knowledgeOffset = knowledge.offsetTop - 100;
+    const recommendationsOffset = recommendations.offsetTop - 100;
     const blogsOffset = blogs.offsetTop - 100;
     const contactOffset = contact.offsetTop - 100;
 
@@ -61,6 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
       setActiveNavLink("contact");
     } else if (scrollPosition >= blogsOffset) {
       setActiveNavLink("blogs");
+    } else if (scrollPosition >= recommendationsOffset) {
+      setActiveNavLink("recommendations");
     } else if (scrollPosition >= knowledgeOffset) {
       setActiveNavLink("knowledge");
     } else if (scrollPosition >= aboutOffset) {
