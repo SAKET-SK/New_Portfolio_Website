@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Saket Khopkar's Portfolio Website</title>
     <link rel="icon" href="images/title_logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -38,6 +38,9 @@
 </script>
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" aria-hidden="true"></div>
+
     <!-- Header & Navigation -->
     <header>
         <div class="container">
@@ -46,8 +49,8 @@
                 <ul class="nav-links">
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#knowledge" class="nav-link">Knowledge</a></li>
                     <li><a href="#recommendations" class="nav-link">Recommendations</a></li>
+                    <li><a href="#knowledge" class="nav-link">Knowledge</a></li>
                     <li><a href="#blogs" class="nav-link">Blogs</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
@@ -138,7 +141,7 @@
                     <div class="projects-grid">
                         <div class="project-card">
                             <div class="project-image">
-                                <img src="images/project-1.png" alt="Project">
+                                <img loading="lazy" src="images/project-1.png" alt="Project">
                             </div>
                             <div class="project-content">
                                 <h3>Google-Lookalike Portfolio Website</h3>
@@ -154,7 +157,7 @@
                         </div>
                         <div class="project-card">
                             <div class="project-image">
-                                <img src="images/project-2.jpg" alt="Project">
+                                <img loading="lazy" src="images/project-2.jpg" alt="Project">
                             </div>
                             <div class="project-content">
                                 <h3>Vehicle Data Analytics</h3>
@@ -169,7 +172,7 @@
                         </div>
                         <div class="project-card">
                             <div class="project-image">
-                                <img src="images/project-3.png" alt="Project">
+                                <img loading="lazy" src="images/project-3.png" alt="Project">
                             </div>
                             <div class="project-content">
                                 <h3>MCP-Powered RAG Assistant for HR Operations</h3>
@@ -189,7 +192,7 @@
                     <div class="projects-grid">
                         <div class="project-card">
                             <div class="project-image">
-                                <img src="images/project-4.jfif" alt="Project">
+                                <img loading="lazy" src="images/project-4.jfif" alt="Project">
                             </div>
                         <div class="project-content">
                                 <h3>Ultimate First Person Shooter Game</h3>
@@ -204,7 +207,7 @@
                         </div>
                         <div class="project-card">
                             <div class="project-image">
-                                <img src="images/project-5.jfif" alt="Project">
+                                <img loading="lazy" src="images/project-5.jfif" alt="Project">
                             </div>
                         <div class="project-content">
                                 <h3>Online Electronic Store</h3>
@@ -302,6 +305,7 @@
                     <button class="carousel-btn" id="prev-btn"><i class="fas fa-chevron-left"></i></button>
                     <button class="carousel-btn" id="next-btn"><i class="fas fa-chevron-right"></i></button>
                 </div>
+                <div class="carousel-dots" id="carousel-dots"></div>
             </div>
         </div>
     </section>
@@ -355,7 +359,7 @@
             <div class="blog-grid">
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="images/blog-1.png" alt="Blog Post">
+                        <img loading="lazy" src="images/blog-1.png" alt="Blog Post">
                     </div>
                     <div class="blog-content">
                         <h3>Honors of AI-ML-DS</h3>
@@ -369,7 +373,7 @@
                 </div>
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="images/blog-2.jfif" alt="Blog Post">
+                        <img loading="lazy" src="images/blog-2.jfif" alt="Blog Post">
                     </div>
                     <div class="blog-content">
                         <h3>EdTech Blog Center</h3>
@@ -383,7 +387,7 @@
                 </div>
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="images/blog-3.png" alt="Blog Post">
+                        <img loading="lazy" src="images/blog-3.png" alt="Blog Post">
                     </div>
                     <div class="blog-content">
                         <h3>Technical Blogs</h3>
@@ -397,7 +401,7 @@
                 </div>
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="images/blog-4.png" alt="Blog Post">
+                        <img loading="lazy" src="images/blog-4.png" alt="Blog Post">
                     </div>
                     <div class="blog-content">
                         <h3>Psyche & Syntax</h3>
@@ -411,7 +415,7 @@
                 </div>
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="images/blog-5.jfif" alt="Blog Post">
+                        <img loading="lazy" src="images/blog-5.jfif" alt="Blog Post">
                     </div>
                     <div class="blog-content">
                         <h3>Psych Time</h3>
@@ -425,7 +429,7 @@
                 </div>
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="images/blog-8.png" alt="Blog Post">
+                        <img loading="lazy" src="images/blog-8.png" alt="Blog Post">
                     </div>
                     <div class="blog-content">
                         <h3>DSA with Python</h3>
@@ -439,7 +443,7 @@
                 </div>
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="images/blog-7.jfif" alt="Blog Post">
+                        <img loading="lazy" src="images/blog-7.jfif" alt="Blog Post">
                     </div>
                     <div class="blog-content">
                         <h3>World of eSports</h3>
@@ -506,6 +510,11 @@
             <p class="copyright">&copy; <script>document.write(new Date().getFullYear())</script> Saket Khopkar. All Rights Reserved.</p>
         </div>
     </footer>
+    <!-- Back to Top -->
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="scripts/script.js"></script>
 </body>
 </html>

@@ -6,19 +6,82 @@ document.addEventListener("DOMContentLoaded", function () {
   const themeIcon = themeToggle.querySelector("i");
 
   // Testimonial Carousel
-  // Testimonial Carousel
   const carousel = document.getElementById("testimonial-carousel");
   const prevBtn = document.getElementById("prev-btn");
   const nextBtn = document.getElementById("next-btn");
   const testimonials = document.querySelectorAll(".testimonial");
+  const reduceMotionQuery = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
   let currentTestimonial = 0;
+  let autoplayTimer = null;
+  let syncDots = function () {}; // no-op until dots are built below
 
-  function updateCarousel() {
-    carousel.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+  // Checked live (not just once on load) so rotating a tablet or resizing
+  // a desktop window across the 768px breakpoint never leaves the
+  // carousel in a broken, half-bound state.
+  function isCarouselMode() {
+    return window.innerWidth > 768;
   }
 
-  // Only run carousel if screen is wider than 768px
-  if (window.innerWidth > 768) {
+  function updateCarousel() {
+    if (isCarouselMode()) {
+      carousel.style.transform = `translateX(-${
+        currentTestimonial * 100
+      }%)`;
+    } else {
+      // On mobile/tablet: reset transform so items just stack
+      carousel.style.transform = "none";
+    }
+    syncDots();
+  }
+
+  function startAutoplay() {
+    if (autoplayTimer || !isCarouselMode() || reduceMotionQuery.matches) {
+      return;
+    }
+    autoplayTimer = setInterval(() => {
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      updateCarousel();
+    }, 10000);
+  }
+
+  function stopAutoplay() {
+    clearInterval(autoplayTimer);
+    autoplayTimer = null;
+  }
+
+  function refreshAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+
+  if (prevBtn && nextBtn && carousel && testimonials.length) {
+    const dotsContainer = document.getElementById("carousel-dots");
+    const recommendationsWrap = document.querySelector(".recommendations");
+
+    // Build one dot per testimonial
+    if (dotsContainer) {
+      testimonials.forEach((_, index) => {
+        const dot = document.createElement("button");
+        dot.className = "carousel-dot";
+        dot.type = "button";
+        dot.setAttribute("aria-label", `Go to testimonial ${index + 1}`);
+        dot.addEventListener("click", function () {
+          currentTestimonial = index;
+          updateCarousel();
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    syncDots = function () {
+      if (!dotsContainer) return;
+      dotsContainer.querySelectorAll(".carousel-dot").forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentTestimonial);
+      });
+    };
+
     prevBtn.addEventListener("click", function () {
       currentTestimonial =
         (currentTestimonial - 1 + testimonials.length) % testimonials.length;
@@ -30,19 +93,59 @@ document.addEventListener("DOMContentLoaded", function () {
       updateCarousel();
     });
 
-    // Auto-advance carousel
-    setInterval(() => {
-      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+    updateCarousel();
+    startAutoplay();
+
+    // Re-evaluate carousel/autoplay state on resize and orientation change
+    window.addEventListener("resize", function () {
       updateCarousel();
-    }, 10000);
-  } else {
-    // On mobile: reset transform so items just stack
-    carousel.style.transform = "none";
+      refreshAutoplay();
+    });
+
+    // Respect the user toggling reduced-motion mid-session
+    reduceMotionQuery.addEventListener("change", refreshAutoplay);
+
+    // Pause auto-advance while the user is looking at or interacting
+    // with the carousel, so it doesn't jump away mid-read
+    if (recommendationsWrap) {
+      recommendationsWrap.addEventListener("mouseenter", stopAutoplay);
+      recommendationsWrap.addEventListener("mouseleave", startAutoplay);
+      recommendationsWrap.addEventListener("focusin", stopAutoplay);
+      recommendationsWrap.addEventListener("focusout", startAutoplay);
+    }
   }
+
+  // Header scroll-edge material: only show the glass border/shadow once
+  // content has actually scrolled underneath the fixed header
+  const siteHeader = document.querySelector("header");
+  const scrollProgress = document.getElementById("scroll-progress");
+  const backToTopBtn = document.getElementById("back-to-top");
 
   // Update active nav link on scroll
   window.addEventListener("scroll", function () {
     const scrollPosition = window.scrollY;
+
+    if (siteHeader) {
+      siteHeader.classList.toggle("is-scrolled", scrollPosition > 8);
+    }
+
+    // Scroll progress bar: tracks 1:1 with scroll position, no easing,
+    // so it reads as directly attached to the user's input
+    if (scrollProgress) {
+      const scrollHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollHeight > 0 ? scrollPosition / scrollHeight : 0;
+      scrollProgress.style.transform = `scaleX(${Math.min(
+        Math.max(progress, 0),
+        1
+      )})`;
+    }
+
+    // Back-to-top: appears once the user has scrolled roughly one
+    // viewport height down
+    if (backToTopBtn) {
+      backToTopBtn.classList.toggle("visible", scrollPosition > window.innerHeight * 0.6);
+    }
 
     // Add padding to offset fixed header height
     const home = document.getElementById("home");
@@ -63,16 +166,25 @@ document.addEventListener("DOMContentLoaded", function () {
       setActiveNavLink("contact");
     } else if (scrollPosition >= blogsOffset) {
       setActiveNavLink("blogs");
-    } else if (scrollPosition >= recommendationsOffset) {
-      setActiveNavLink("recommendations");
     } else if (scrollPosition >= knowledgeOffset) {
       setActiveNavLink("knowledge");
+    } else if (scrollPosition >= recommendationsOffset) {
+      setActiveNavLink("recommendations");
     } else if (scrollPosition >= aboutOffset) {
       setActiveNavLink("about");
     } else if (scrollPosition >= homeOffset) {
       setActiveNavLink("home");
     }
   });
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: reduceMotionQuery.matches ? "auto" : "smooth",
+      });
+    });
+  }
 
   function setActiveNavLink(id) {
     navLinks.forEach((link) => {
@@ -88,6 +200,21 @@ document.addEventListener("DOMContentLoaded", function () {
     navLinksContainer.classList.toggle("active");
   });
 
+  // Close the mobile menu once a destination is chosen
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function () {
+      navLinksContainer.classList.remove("active");
+    });
+  });
+
+  // Close the mobile menu with Escape, and return focus to the menu button
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && navLinksContainer.classList.contains("active")) {
+      navLinksContainer.classList.remove("active");
+      menuBtn.focus();
+    }
+  });
+
   // Theme toggle
   themeToggle.addEventListener("click", function () {
     document.body.classList.toggle("dark-mode");
@@ -99,6 +226,12 @@ document.addEventListener("DOMContentLoaded", function () {
       themeIcon.classList.remove("fa-sun");
       themeIcon.classList.add("fa-moon");
     }
+
+    // Quick rotate + settle animation on the swapped icon
+    themeIcon.classList.remove("icon-swap-anim");
+    // Force reflow so the animation can be re-triggered on rapid toggles
+    void themeIcon.offsetWidth;
+    themeIcon.classList.add("icon-swap-anim");
   });
 
   // Contact form submission
@@ -113,6 +246,25 @@ document.addEventListener("DOMContentLoaded", function () {
   const formMessage = document.getElementById("form-message");
   const submitBtn = document.getElementById("submit-btn");
   const senderName = document.getElementById("name");
+
+  // Inline validation: mark a field "touched" once the user leaves it,
+  // then keep the valid/invalid border in sync as they keep typing
+  if (contactForm) {
+    const validatableFields = contactForm.querySelectorAll(".form-control");
+    validatableFields.forEach((field) => {
+      field.addEventListener("blur", function () {
+        field.classList.add("touched");
+      });
+      field.addEventListener("input", function () {
+        if (field.classList.contains("touched")) {
+          // re-render validity state live while correcting a flagged field
+          field.classList.remove("touched");
+          void field.offsetWidth;
+          field.classList.add("touched");
+        }
+      });
+    });
+  }
 
   if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
@@ -134,6 +286,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Reset form
             contactForm.reset();
+            contactForm
+              .querySelectorAll(".form-control.touched")
+              .forEach((field) => field.classList.remove("touched"));
 
             // Hide message after 5 seconds
             setTimeout(() => {
