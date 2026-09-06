@@ -1,0 +1,77 @@
+[
+    {
+      "id": "bio",
+      "category": "About",
+      "text": "Saket Khopkar is a Software Engineer and Full-Stack Developer based in Pune, Maharashtra, India, with a strong focus on Generative AI, Conversational AI, and Oracle Digital Assistant solutions. He is a passionate developer and tech-writer with expertise in creating digital experiences that engage and inspire. He currently works at Accenture as an AI ML Computational Science Analyst."
+    },
+    {
+      "id": "experience-accenture",
+      "category": "Work Experience",
+      "text": "Since March 2026, Saket has worked at Accenture as an AI ML Computational Science Analyst (Full Time). He works with cross-functional teams, leveraging AI to build and ship applications for a Global Pharmaceutical Client."
+    },
+    {
+      "id": "experience-omfys",
+      "category": "Work Experience",
+      "text": "From July 2023 to February 2026, Saket worked at OMFYS Technologies India Pvt. Ltd. as a Software Engineer (Full Time). He specialized in building Generative AI and Oracle Digital Assistant solutions, leading chatbot projects, client presentations, and cloud-based analytics to drive innovation and business efficiency. He managed four digital assistants with strong ownership and accurate cost reporting for client transparency."
+    },
+    {
+      "id": "education-i2it",
+      "category": "Education",
+      "text": "Saket completed his B.E. in Information Technology with Honors in Data Science & Big Data Analytics (CGPA 8.64) at the International Institute of Information Technology (I2IT), Pune, from June 2019 to August 2022. He completed academic projects in DBMS and Machine Learning, published research on vehicle health prediction, and earned Honors in Data Science with a focus on AI, Machine Learning, and Natural Language Processing."
+    },
+    {
+      "id": "education-polytechnic",
+      "category": "Education",
+      "text": "Saket earned a Diploma in Computer Engineering (Aggregate 82.12%) from Government Polytechnic, Yavatmal, from June 2016 to June 2019. He represented the college in competitions, contributed to campus event decisions, led an environmental initiative, and led a final-year e-commerce project as team leader."
+    },
+    {
+      "id": "project-google-portfolio",
+      "category": "Projects",
+      "text": "Google-Lookalike Portfolio Website: Saket built a portfolio website mimicking the look and feel of the Google Search Engine and other related features, using React, Node.js, Material-UI, and JavaScript. Source code: https://github.com/SAKET-SK/Google-Type-Portfolio-Website"
+    },
+    {
+      "id": "project-vehicle-analytics",
+      "category": "Projects",
+      "text": "Vehicle Data Analytics: Saket developed an advanced framework leveraging machine learning algorithms and data analytics to extrapolate vehicle health and driving attributes, using Python, Jupyter Notebook, and OpenCV. This was tied to his published research on vehicle health prediction. Source code: https://github.com/SAKET-SK/OpenCV"
+    },
+    {
+      "id": "project-rag-mcp",
+      "category": "Projects",
+      "text": "MCP-Powered RAG Assistant for HR Operations: An intelligent HR assistant that orchestrates multiple data sources using Model Context Protocol (MCP) and Retrieval-Augmented Generation (RAG) to provide accurate, context-aware responses. Built with RAG, MCP, Python, Streamlit, and AI Agent techniques. Source code: https://github.com/SAKET-SK/RAG-MCP-Project"
+    },
+    {
+      "id": "project-fps-game",
+      "category": "Projects",
+      "text": "Ultimate First Person Shooter Game: Saket developed a full-fledged First Person Shooter (FPS) game using the Unity Game Engine, with C# for gameplay logic. Source code: https://github.com/SAKET-SK/FPS-GAME"
+    },
+    {
+      "id": "project-electronic-store",
+      "category": "Projects",
+      "text": "Online Electronic Store: Saket developed an online electronic shop with features to browse electronic items and place orders for delivery, using ASP.NET and C#. Source code: https://github.com/SAKET-SK/Online-Electronic-Store-Project"
+    },
+    {
+      "id": "achievements",
+      "category": "Achievements",
+      "text": "Saket was certified as a hardworking intern at Axiom TechGuru Pvt Ltd (2018) for intense focus and willingness to create new applications. As of 2025, he holds multiple Oracle certifications in Generative AI, Agentic AI, and LLMs. He has an ongoing reputation across teams and managers for delivering reliably, thoroughly, and ahead of expectations."
+    },
+    {
+      "id": "skills",
+      "category": "Technical Skills",
+      "text": "Saket's technical skill set spans: Frontend — HTML5, CSS3, JavaScript, Responsive Design. Backend — Node.js, Express, Python, RESTful APIs. Databases — MySQL, MongoDB. Other skills — Generative AI, Agentic AI, RAG, MCP, Team Leadership, Technical Writing / Blogging, and Conversational AI (including Oracle Digital Assistant)."
+    },
+    {
+      "id": "blogs",
+      "category": "Blogs",
+      "text": "Saket writes several technical and personal blogs: 'Honors of AI-ML-DS' simplifying Generative AI concepts (learnaimldswithsk.hashnode.dev); 'EdTech Blog Center' covering emerging tech topics; 'Technical Blogs' on Full Stack Web Development (saketsk.hashnode.dev); 'Psyche & Syntax', a LinkedIn newsletter mixing tech and psychology; 'Psych Time', on human psychology; 'DSA with Python', simplifying data structures and algorithms for AI Engineer roles (jsprep.hashnode.dev); and 'World of eSports', exploring esports and online gaming."
+    },
+    {
+      "id": "contact",
+      "category": "Contact",
+      "text": "You can contact Saket Khopkar via email at saketkhopkar910@gmail.com. He is based in Pune, Maharashtra, India, and is available online on weekends from 10 AM to 1 PM IST. He is also reachable via GitHub (github.com/SAKET-SK) and LinkedIn (linkedin.com/in/saket-khopkar-336684198)."
+    },
+    {
+      "id": "recommendations",
+      "category": "Recommendations",
+      "text": "Colleagues describe Saket as a quick learner with strong fundamentals in Python and Java, a team builder with leadership experience, and someone who consistently demonstrates strong analytical skills across multiple AI chatbot projects and proof-of-concepts. He is noted for expertly managing four digital assistants with meticulous attention to detail and accurate cost reporting, for strong ownership on Agentic AI-based projects, for deep expertise in Oracle technologies, for thorough documentation and willingness to tackle unfamiliar challenges, and for leading a banking project to delivery ahead of schedule."
+    }
+  ]

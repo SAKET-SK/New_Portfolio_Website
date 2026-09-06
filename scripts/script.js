@@ -322,3 +322,147 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+// =========================================================
+// AI MODE — chat toggle + RAG chatbot wiring
+// Self-contained: does not touch any of the logic above.
+// =========================================================
+document.addEventListener("DOMContentLoaded", function () {
+  const aiModeToggle = document.getElementById("ai-mode-toggle");
+  const classicView = document.getElementById("classic-view");
+  const aiModeView = document.getElementById("ai-mode-view");
+
+  if (!aiModeToggle || !classicView || !aiModeView) return;
+
+  const navLinksContainer = document.querySelector(".nav-links");
+  const chatForm = document.getElementById("ai-chat-form");
+  const chatInput = document.getElementById("ai-chat-input");
+  const chatSendBtn = document.getElementById("ai-chat-send");
+  const chatMessages = document.getElementById("ai-chat-messages");
+  const quickButtons = document.querySelectorAll(".ai-quick-btn");
+
+  // Backend endpoint — the Netlify Function directly (bypasses the
+  // /api/chat redirect, which some Netlify setups mishandle for POST).
+  const CHAT_API_ENDPOINT = "/.netlify/functions/chat";
+
+  // Keep the last few turns in memory only (resets on reload), consistent
+  // with how theme choice is already session-only on this site.
+  let conversationHistory = [];
+  let isSending = false;
+
+  function setAiMode(active) {
+    document.body.classList.toggle("ai-mode-active", active);
+    classicView.hidden = active;
+    aiModeView.hidden = !active;
+
+    aiModeToggle.innerHTML = active
+      ? '<i class="fas fa-arrow-left"></i><span>Classic Mode</span>'
+      : '<i class="fas fa-robot"></i><span>AI Mode</span>';
+    aiModeToggle.setAttribute(
+      "aria-label",
+      active ? "Switch back to Classic Mode" : "Switch to AI Mode"
+    );
+    aiModeToggle.setAttribute("aria-pressed", String(active));
+
+    // Close the mobile nav menu if it was open
+    if (navLinksContainer) navLinksContainer.classList.remove("active");
+
+    if (active) {
+      window.scrollTo({ top: 0, behavior: "auto" });
+      if (chatInput) chatInput.focus();
+    }
+  }
+
+  aiModeToggle.addEventListener("click", function () {
+    const willActivate = !document.body.classList.contains("ai-mode-active");
+    setAiMode(willActivate);
+  });
+
+  function appendMessage(role, text) {
+    const bubble = document.createElement("div");
+    bubble.className = `ai-message ai-message-${role === "user" ? "user" : "bot"}`;
+    const p = document.createElement("p");
+    p.textContent = text;
+    bubble.appendChild(p);
+    chatMessages.appendChild(bubble);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    return bubble;
+  }
+
+  function appendTypingIndicator() {
+    const bubble = document.createElement("div");
+    bubble.className = "ai-message ai-message-bot ai-message-typing";
+    bubble.innerHTML =
+      '<span class="ai-typing-dot"></span><span class="ai-typing-dot"></span><span class="ai-typing-dot"></span>';
+    chatMessages.appendChild(bubble);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    return bubble;
+  }
+
+  function setSendingState(sending) {
+    isSending = sending;
+    if (chatInput) chatInput.disabled = sending;
+    if (chatSendBtn) chatSendBtn.disabled = sending;
+    quickButtons.forEach((btn) => (btn.disabled = sending));
+  }
+
+  async function sendMessage(rawText) {
+    const text = (rawText || "").trim();
+    if (!text || isSending) return;
+
+    setSendingState(true);
+    appendMessage("user", text);
+    conversationHistory.push({ role: "user", content: text });
+    if (chatInput) chatInput.value = "";
+
+    const typingBubble = appendTypingIndicator();
+
+    try {
+      const response = await fetch(CHAT_API_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        // Only the last 10 turns are sent — plenty for short-term context
+        // without ballooning the request.
+        body: JSON.stringify({
+          message: text,
+          history: conversationHistory.slice(-10),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Chat API responded with ${response.status}`);
+      }
+
+      const data = await response.json();
+      typingBubble.remove();
+
+      const reply =
+        data && data.reply
+          ? data.reply
+          : "Sorry, I couldn't generate a response just now. Please try again.";
+      appendMessage("bot", reply);
+      conversationHistory.push({ role: "assistant", content: reply });
+    } catch (err) {
+      typingBubble.remove();
+      appendMessage(
+        "bot",
+        "Hmm, I couldn't reach the assistant backend just now. Please try again in a moment, or reach out via the Contact section."
+      );
+    } finally {
+      setSendingState(false);
+      if (chatInput) chatInput.focus();
+    }
+  }
+
+  if (chatForm) {
+    chatForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      sendMessage(chatInput ? chatInput.value : "");
+    });
+  }
+
+  quickButtons.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      sendMessage(btn.getAttribute("data-prompt"));
+    });
+  });
+});

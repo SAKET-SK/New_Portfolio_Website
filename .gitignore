@@ -137,3 +137,10 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+.env
+.vercel
+node_modules/
+.DS_Store
+# Local Netlify folder
+.netlify
